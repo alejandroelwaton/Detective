@@ -49,7 +49,8 @@ def train_model():
     recognizer.train(faces, np.array(ids))
 
     os.makedirs('trainer', exist_ok=True)
-    recognizer.write('trainer/trainer.yml')
+    
+    recognizer.write(os.path.join(base_dir, 'trainer', 'trainer.yml'))
 
     print(f"[INFO] Training done with -> {len(np.unique(ids))} users.")
     return f"Entrenamiento completado con {len(np.unique(ids))} usuarios."
